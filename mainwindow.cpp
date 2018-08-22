@@ -16,7 +16,6 @@
 #include <iostream>
 
 #include "mainWindow.h"
-#include "paintLabel.h"
 #include "ui_mainwindow.h"
 
 
@@ -40,10 +39,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 
     frame = new QFrame;
     setCentralWidget(frame);    //set frontFaceScroll to center
-
-    viewer = new Viewer;
-    viewer->setParent(frame);
-    viewer->resize(VIEW_SIZE,VIEW_SIZE);
 
     highlightOuterBorder = new QWidget(frame);
     highlightOuterBorder->resize(652,PAINT_SIZE/4+2);
@@ -101,9 +96,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     fineLabel->setPalette(blue_palette);
     fineLabel->setText("Fine");
 
-    viewControl = new ViewControl(frame, viewer, this);
-    viewControl->setMinimumSize(VIEW_SIZE, VIEW_SIZE);
-    viewControl->setVisible(false);
 
     // tool labels
     wireLabel = new PaintLabel(frame, this, WIRE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
@@ -138,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 
 
     // set widget positions
-    viewer->move(PAINT_SIZE/2+20, PAINT_SIZE/4+10);
+
 
     highlightOuterBorder->move(9, 4);
     highlightInnerBorder->move(9, PAINT_SIZE/4+9);

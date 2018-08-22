@@ -2,7 +2,6 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
-#include "viewControl.h"
 #include "paintArea.h"
 #include "sketchrender.h"
 #include <QScrollArea>
@@ -36,6 +35,12 @@
 #define REFINE_DEFORM_MODE 35
 #define SKETCH_FINE_MODE 36
 
+#define PAINT_SIZE 256
+#define VIEW_SIZE 900
+#define VERTEX_SIZE 11510
+#define MIN_NORMAL_DEGREE 85
+#define MAX_NORMAL_DEGREE 95
+#define PI 3.14159265
 
 namespace Ui {
     class MainWindow;
@@ -72,8 +77,6 @@ private:
     PaintLabel *coarseSaveLabel, *coarseLoadLabel, *coarseClearLabel;
     PaintArea *coarsePanel;
     QWidget *highlightOuterBorder, *highlightInnerBorder;
-    ViewControl *viewControl;
-    Viewer *viewer;
     QFrame *frame;
     QLabel *coarseLabel, *fineLabel;
     sketchRender *rendsketch;
