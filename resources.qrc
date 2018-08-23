@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>src/deform.png</file>
+        <file>src/fine.png</file>
+        <file>src/left.png</file>
+        <file>src/redo.png</file>
+        <file>src/refine.png</file>
+        <file>src/right.png</file>
+        <file>src/save.png</file>
+        <file>src/select.png</file>
+        <file>src/sketch.png</file>
+        <file>src/sketch_clear.png</file>
+        <file>src/sketch_load.png</file>
+        <file>src/sketch_save.png</file>
+        <file>src/smooth.png</file>
+        <file>src/texture.png</file>
+        <file>src/undo.png</file>
+        <file>src/viewmodel.png</file>
+        <file>src/wire.png</file>
+    </qresource>
+</RCC>

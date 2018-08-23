@@ -1,1 +1,0 @@
-# Deep-Sketch-to-Monster
