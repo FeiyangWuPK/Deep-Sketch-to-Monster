@@ -1,14 +1,28 @@
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QGuiApplication>
 #include <QMainWindow>
-#include "paintArea.h"
-#include "sketchrender.h"
+<<<<<<< HEAD
+=======
+#include <QLabel>
+#include <QtCore>
+#include <QScreen>
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 #include <QScrollArea>
 #include <QComboBox>
 #include <iostream>
 #include <QTextBrowser>
+<<<<<<< HEAD
 #include <QLabel>
+#include <QDir>
+=======
+#include <QRect>
+
+#include "paintLabel.h"
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
 #define RETRI_MODE 11
 #define SKETC_MODE 12
@@ -35,6 +49,7 @@
 #define REFINE_DEFORM_MODE 35
 #define SKETCH_FINE_MODE 36
 
+<<<<<<< HEAD
 #define PAINT_SIZE 256
 #define VIEW_SIZE 900
 #define VERTEX_SIZE 11510
@@ -42,80 +57,81 @@
 #define MAX_NORMAL_DEGREE 95
 #define PI 3.14159265
 
+using namespace std;
+=======
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 namespace Ui {
-    class MainWindow;
+class MainWindow;
 }
 
+<<<<<<< HEAD
+class PaintLabel;
 
 class MainWindow : public QMainWindow {
+=======
+class MainWindow : public QMainWindow
+{
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     Q_OBJECT
+
 public:
     friend class PaintLabel;
+<<<<<<< HEAD
     friend class ViewControl;
     friend class PaintArea;
-    MainWindow(QWidget *parent = 0);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     void creatColorComboBox(QComboBox*);
 
-    bool saveFile(QString fileName, PaintArea *area);
+=======
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     int is_front = true;
     bool is_drawing = false;
-
-
-protected:
-    void changeEvent(QEvent*);
-    void closeEvent(QCloseEvent*);
-    void moveEvent (QMoveEvent*);
-
 private:
-    int inner_mode, outer_mode;
     Ui::MainWindow *ui;
+
+<<<<<<< HEAD
+=======
+    int inner_mode, outer_mode;
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     QTextBrowser *browser;
     PaintLabel *skectchBigPanel, *refineBigPanel, *finePanel, *modelPanel, *selectPanel, *deformPanel, *leftPanel, *rightPanel;
     PaintLabel *wireLabel, *smoothLabel, *textureLabel, *undoLabel, *redoLabel, *saveLabel;
     PaintLabel *coarseSaveLabel, *coarseLoadLabel, *coarseClearLabel;
-    PaintArea *coarsePanel;
+<<<<<<< HEAD
+    QLabel *coarsePanel;
     QWidget *highlightOuterBorder, *highlightInnerBorder;
     QFrame *frame;
     QLabel *coarseLabel, *fineLabel;
-    sketchRender *rendsketch;
+    //sketchRender *rendsketch;
 
     QString curFile;
-    vector< vector<QVector3D>> contours;
-    vector< vector<int>> contourId;
-    vector< vector<QPoint>> contour2d;
+    //vector< vector<QVector3D>> contours;
+    //vector< vector<int>> contourId;
+    //vector< vector<QPoint>> contour2d;
 
     void action_Run();
     void action_LoadFace();
     void action_SaveModel();
-    std::string deformpath = std::string(localfolder()+"/models/front/saved.png");
-    std::string coarsepath = std::string(localfolder()+"/models/front/frontface.png");
+    std::string deformpath = std::string(QDir::currentPath().toStdString()+"/models/front/saved.png");
+    std::string coarsepath = std::string(QDir::currentPath().toStdString()+"/models/front/frontface.png");
+=======
+    QWidget *highlightOuterBorder, *highlightInnerBorder;
+    QFrame *frame;
+    QLabel *coarseLabel, *fineLabel;
+    QString curFile;
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
     bool has_rendered_front = false;
 };
 
-class PaintLabel : public QLabel{
-public:
-    friend class ViewControl;
-    PaintLabel(QWidget *parent, MainWindow* parentwindow, int m, int w = PAINT_SIZE, int h = PAINT_SIZE){
-        labelwidth = w; labelheight = h;
-        QImage image = QImage(w, h, QImage::Format_RGB32);
-        image.fill(qRgb(255, 255, 255));
-        setImage(image);
-    }
-    void setImage(QImage image){
-        setPixmap(QPixmap::fromImage(QImage(image.scaled(labelwidth, labelheight, Qt::KeepAspectRatio)).convertToFormat(QImage::Format_RGB32)));
-    }
-    MainWindow* parentwindow;
-
-    int mode;
-    int is_front = true; // for CONTO_MODE
-    int labelwidth, labelheight;
-
-protected:
-
-};
-
+<<<<<<< HEAD
 
 #endif
+=======
+#endif // MAINWINDOW_H
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb

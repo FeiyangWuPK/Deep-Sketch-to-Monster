@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include <QTextCodec>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    w.initmodel();
+<<<<<<< HEAD
+=======
+
+>>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     return a.exec();
 }
