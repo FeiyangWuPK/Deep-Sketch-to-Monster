@@ -1,30 +1,13 @@
 #ifndef PAINTLABEL_H
 #define PAINTLABEL_H
 #include <QLabel>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 #include <QWidget>
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
-#include <QWidget>
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
 #define PAINT_SIZE 256
 #define VIEW_SIZE 900
 
 class MainWindow;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-class PaintLabel : public QLabel{
-public:
-    friend class ViewControl;
-    PaintLabel(QWidget *parent, MainWindow* parentwindow, int m, int w = PAINT_SIZE, int h = PAINT_SIZE);
-    void setImage(QImage image);
-=======
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 class PaintLabel : public QLabel
 {
 public:
@@ -38,24 +21,11 @@ public:
     void setImage(QImage image){
         setPixmap(QPixmap::fromImage(QImage(image.scaled(labelwidth, labelheight, Qt::KeepAspectRatio)).convertToFormat(QImage::Format_RGB32)));
     }
-<<<<<<< HEAD
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     MainWindow* parentwindow;
 
     int mode;
     int is_front = true; // for CONTO_MODE
     int labelwidth, labelheight;
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-protected:
-
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 };
 
 #endif // PAINTLABEL_H

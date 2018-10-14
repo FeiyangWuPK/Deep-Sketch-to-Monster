@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-#include <GL/glu.h>
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QtOpenGL>
-#include <QGLWidget>
-#include <QPainter>
-#include <QVariant>
-#include <QDesktopWidget>
-#include <QTextBrowser>
-#include <QFont>
-#include <ctime>
-#include <QLabel>
-#include <QPixmap>
-#include <QPalette>
-#include <fstream>
-#include <iostream>
-
-#include "mainwindow.h"
-#include "paintLabel.h"
-#include "ui_mainWindow.h"
-
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
-=======
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -32,10 +5,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-<<<<<<< HEAD
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     ui->setupUi(this);
     setFixedSize(1324,984);
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -64,66 +33,20 @@ MainWindow::MainWindow(QWidget *parent) :
     skectchBigPanel = new PaintLabel(frame, this, SKETCH_MODE, 650, PAINT_SIZE/4);
     skectchBigPanel->setMinimumSize(650, PAINT_SIZE/4);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    skectchBigPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/sketch.png")));
-    refineBigPanel = new PaintLabel(frame, this, REFINE_MODE, 650, PAINT_SIZE/4);
-    refineBigPanel->setMinimumSize(650, PAINT_SIZE/4);
-    refineBigPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/refine.png")));
-=======
     skectchBigPanel->setImage(QImage(QString::fromStdString(":/src/sketch.png")));
     refineBigPanel = new PaintLabel(frame, this, REFINE_MODE, 650, PAINT_SIZE/4);
     refineBigPanel->setMinimumSize(650, PAINT_SIZE/4);
     refineBigPanel->setImage(QImage(QString::fromStdString(":/src/refine.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
-    skectchBigPanel->setImage(QImage(QString::fromStdString(":/src/sketch.png")));
-    refineBigPanel = new PaintLabel(frame, this, REFINE_MODE, 650, PAINT_SIZE/4);
-    refineBigPanel->setMinimumSize(650, PAINT_SIZE/4);
-    refineBigPanel->setImage(QImage(QString::fromStdString(":/src/refine.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
 
     // left panels
     modelPanel = new PaintLabel(frame, this, VIEW_MODE, PAINT_SIZE/2, PAINT_SIZE/2);
     modelPanel->setMinimumSize(PAINT_SIZE/2, PAINT_SIZE/2);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    modelPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/viewmodel.png")));
-=======
     modelPanel->setImage(QImage(QString::fromStdString(":/src/viewmodel.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
-    modelPanel->setImage(QImage(QString::fromStdString(":/src/viewmodel.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
     //right panels
     selectPanel = new PaintLabel(frame, this, REFINE_SELECT_MODE, PAINT_SIZE, PAINT_SIZE/2);
     selectPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    selectPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/select.png")));
-    selectPanel->setVisible(false);
-    deformPanel = new PaintLabel(frame, this, REFINE_DEFORM_MODE, PAINT_SIZE, PAINT_SIZE/2);
-    deformPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    deformPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/deform.png")));
-    deformPanel->setVisible(false);
-    leftPanel  = new PaintLabel(frame, this, LEFT_LABEL, PAINT_SIZE, PAINT_SIZE/2);
-    leftPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    leftPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/left.png")));
-    leftPanel->setVisible(false);
-    rightPanel  = new PaintLabel(frame, this, RIGHT_LABEL, PAINT_SIZE, PAINT_SIZE/2);
-    rightPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    rightPanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/right.png")));
-    rightPanel->setVisible(false);
-
-
-    coarsePanel = new QLabel(frame);
-    coarsePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
-    finePanel = new PaintLabel(frame, this, SKETCH_FINE_MODE);
-    finePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
-    finePanel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/fine.png")));
-=======
     selectPanel->setImage(QImage(QString::fromStdString(":/src/select.png")));
     selectPanel->setVisible(false);
     deformPanel = new PaintLabel(frame, this, REFINE_DEFORM_MODE, PAINT_SIZE, PAINT_SIZE/2);
@@ -145,30 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     finePanel = new PaintLabel(frame, this, SKETCH_FINE_MODE);
     finePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
     finePanel->setImage(QImage(QString::fromStdString(":/src/fine.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
-    selectPanel->setImage(QImage(QString::fromStdString(":/src/select.png")));
-    selectPanel->setVisible(false);
-    deformPanel = new PaintLabel(frame, this, REFINE_DEFORM_MODE, PAINT_SIZE, PAINT_SIZE/2);
-    deformPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    deformPanel->setImage(QImage(QString::fromStdString(":/src/deform.png")));
-    deformPanel->setVisible(false);
-    leftPanel  = new PaintLabel(frame, this, LEFT_LABEL, PAINT_SIZE, PAINT_SIZE/2);
-    leftPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    leftPanel->setImage(QImage(QString::fromStdString(":/src/left.png")));
-    leftPanel->setVisible(false);
-    rightPanel  = new PaintLabel(frame, this, RIGHT_LABEL, PAINT_SIZE, PAINT_SIZE/2);
-    rightPanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE/2);
-    rightPanel->setImage(QImage(QString::fromStdString(":/src/right.png")));
-    rightPanel->setVisible(false);
-
-
-    //coarsePanel = new PaintArea(frame, this);
-    //coarsePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
-    finePanel = new PaintLabel(frame, this, SKETCH_FINE_MODE);
-    finePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
-    finePanel->setImage(QImage(QString::fromStdString(":/src/fine.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     finePanel->is_front = true;
     coarseLabel = new QLabel(frame);
     coarseLabel->setFont(QFont("Arial", 14, QFont::Normal));
@@ -186,25 +85,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // tool labels
     wireLabel = new PaintLabel(frame, this, WIRE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     wireLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    wireLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/wire.png")));
-    smoothLabel = new PaintLabel(frame, this, SMOOTH_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    smoothLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    smoothLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/smooth.png")));
-    textureLabel = new PaintLabel(frame, this, TEXTURE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    textureLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    textureLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/texture.png")));
-    undoLabel = new PaintLabel(frame, this, UNDO_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    undoLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    undoLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/undo.png")));
-    redoLabel = new PaintLabel(frame, this, REDO_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    redoLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    redoLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/redo.png")));
-    saveLabel  = new PaintLabel(frame, this, SAVE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    saveLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    saveLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/save.png")));
-=======
     wireLabel->setImage(QImage(QString::fromStdString(":/src/wire.png")));
     smoothLabel = new PaintLabel(frame, this, SMOOTH_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     smoothLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
@@ -221,41 +101,10 @@ MainWindow::MainWindow(QWidget *parent) :
     saveLabel  = new PaintLabel(frame, this, SAVE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     saveLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
     saveLabel->setImage(QImage(QString::fromStdString(":/src/save.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
-    wireLabel->setImage(QImage(QString::fromStdString(":/src/wire.png")));
-    smoothLabel = new PaintLabel(frame, this, SMOOTH_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    smoothLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    smoothLabel->setImage(QImage(QString::fromStdString(":/src/smooth.png")));
-    textureLabel = new PaintLabel(frame, this, TEXTURE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    textureLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    textureLabel->setImage(QImage(QString::fromStdString(":/src/texture.png")));
-    undoLabel = new PaintLabel(frame, this, UNDO_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    undoLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    undoLabel->setImage(QImage(QString::fromStdString(":/src/undo.png")));
-    redoLabel = new PaintLabel(frame, this, REDO_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    redoLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    redoLabel->setImage(QImage(QString::fromStdString(":/src/redo.png")));
-    saveLabel  = new PaintLabel(frame, this, SAVE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    saveLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    saveLabel->setImage(QImage(QString::fromStdString(":/src/save.png")));
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
 
     coarseLoadLabel = new PaintLabel(frame, this, COARSE_LOAD_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     coarseLoadLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    coarseLoadLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/sketch_load.png")));
-    coarseClearLabel = new PaintLabel(frame, this, COARSE_CLEAR_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    coarseClearLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    coarseClearLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/sketch_clear.png")));
-    coarseSaveLabel = new PaintLabel(frame, this, COARSE_SAVE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
-    coarseSaveLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
-    coarseSaveLabel->setImage(QImage(QString::fromStdString(QDir::currentPath().toStdString()+"/images/sketch_save.png")));
-=======
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
     coarseLoadLabel->setImage(QImage(QString::fromStdString(":/src/sketch_load.png")));
     coarseClearLabel = new PaintLabel(frame, this, COARSE_CLEAR_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     coarseClearLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
@@ -263,10 +112,6 @@ MainWindow::MainWindow(QWidget *parent) :
     coarseSaveLabel = new PaintLabel(frame, this, COARSE_SAVE_LABEL, PAINT_SIZE/4, PAINT_SIZE/4);
     coarseSaveLabel->setMinimumSize(PAINT_SIZE/4, PAINT_SIZE/4);
     coarseSaveLabel->setImage(QImage(QString::fromStdString(":/src/sketch_save.png")));
-<<<<<<< HEAD
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
 
 
     // set widget positions
@@ -320,11 +165,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
-=======
->>>>>>> d148d5907f79639c1b348cec98c15561235a33eb
