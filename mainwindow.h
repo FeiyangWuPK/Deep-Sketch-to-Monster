@@ -61,13 +61,18 @@ private:
 
     int inner_mode, outer_mode;
     QTextBrowser *browser;
-    PaintLabel *skectchBigPanel, *refineBigPanel, *finePanel, *modelPanel, *selectPanel, *deformPanel, *leftPanel, *rightPanel;
-    PaintLabel *wireLabel, *smoothLabel, *textureLabel, *undoLabel, *redoLabel, *saveLabel;
+    PaintLabel *skectchBigPanel, *refineBigPanel,
+                *finePanel, *modelPanel, *selectPanel,
+                *deformPanel, *leftPanel, *rightPanel;
+    PaintLabel *wireLabel, *smoothLabel,
+                *textureLabel, *undoLabel, *redoLabel, *saveLabel;
     PaintLabel *coarseSaveLabel, *coarseLoadLabel, *coarseClearLabel;
     QWidget *highlightOuterBorder, *highlightInnerBorder;
     QFrame *frame;
     QLabel *coarseLabel, *fineLabel;
     QString curFile;
+
+    PaintLabel *coarsePanel;
 
     bool has_rendered_front = false;
 };

@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     highlightInnerBorder->resize(PAINT_SIZE/2+2,PAINT_SIZE/2+2);
     highlightInnerBorder->setStyleSheet("background-color: red");
 
-    // up panels
+    // up panels for sketching and refinement
     skectchBigPanel = new PaintLabel(frame, this, SKETCH_MODE, 650, PAINT_SIZE/4);
     skectchBigPanel->setMinimumSize(650, PAINT_SIZE/4);
 
@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     refineBigPanel->setImage(QImage(QString::fromStdString(":/src/refine.png")));
 
 
-    // left panels
+    // left panel: modelPanel is a controller for view 3D models
     modelPanel = new PaintLabel(frame, this, VIEW_MODE, PAINT_SIZE/2, PAINT_SIZE/2);
     modelPanel->setMinimumSize(PAINT_SIZE/2, PAINT_SIZE/2);
     modelPanel->setImage(QImage(QString::fromStdString(":/src/viewmodel.png")));
@@ -63,8 +63,8 @@ MainWindow::MainWindow(QWidget *parent) :
     rightPanel->setVisible(false);
 
 
-    //coarsePanel = new PaintArea(frame, this);
-    //coarsePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
+    coarsePanel = new PaintLabel(frame, this,  REFINE_SELECT_MODE, PAINT_SIZE, PAINT_SIZE);
+    coarsePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
     finePanel = new PaintLabel(frame, this, SKETCH_FINE_MODE);
     finePanel->setMinimumSize(PAINT_SIZE, PAINT_SIZE);
     finePanel->setImage(QImage(QString::fromStdString(":/src/fine.png")));
@@ -130,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent) :
     coarseClearLabel->move(PAINT_SIZE/2+VIEW_SIZE+52+PAINT_SIZE/4+10, PAINT_SIZE/4+10);
     coarseSaveLabel->move(PAINT_SIZE/2+VIEW_SIZE+62+PAINT_SIZE/2+20, PAINT_SIZE/4+10);
 
-    //coarsePanel->move(PAINT_SIZE/2+VIEW_SIZE+30, PAINT_SIZE/2+20);
+    coarsePanel->move(PAINT_SIZE/2+VIEW_SIZE+30, PAINT_SIZE/2+20);
     finePanel->move(PAINT_SIZE/2+VIEW_SIZE+30, PAINT_SIZE/2+PAINT_SIZE+30);
     coarseLabel->move(PAINT_SIZE/2+VIEW_SIZE+35, PAINT_SIZE/2+25);
     fineLabel->move(PAINT_SIZE/2+VIEW_SIZE+35, PAINT_SIZE/2+PAINT_SIZE+35);
